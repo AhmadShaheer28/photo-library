@@ -43,13 +43,13 @@ class PhotoManager: ObservableObject {
         
         var newPhotos: [PhotoItem] = []
         
-        fetchResult.enumerateObjects { [weak self] asset, index, _ in
+        fetchResult.enumerateObjects { asset, index, _ in
             let photoItem = PhotoItem(asset: asset, index: index)
             newPhotos.append(photoItem)
         }
         
         DispatchQueue.main.async {
-            self.photos = newPhotos
+            self.photos = newPhotos.suffix(100)
             self.isLoading = false
         }
     }

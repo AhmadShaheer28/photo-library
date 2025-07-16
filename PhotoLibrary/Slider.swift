@@ -24,10 +24,9 @@ struct Slider: View {
                 let x = center + CGFloat(tick - value) * stepWidth + dragOffset
                 
                 VStack {
-                    Spacer()
                     RoundedRectangle(cornerRadius: 10)
                         .fill(tick == tempValue ? .white : .gray.opacity(0.4))
-                        .frame(width: tick == tempValue ? 4 : 2, height: 30)
+                        .frame(width: tick == tempValue ? 4 : 2, height: tick == tempValue ? 30 : 15)
                 }
                 .position(x: x, y: size.height / 2)
             }
