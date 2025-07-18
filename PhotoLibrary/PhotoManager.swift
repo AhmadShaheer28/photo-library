@@ -49,7 +49,7 @@ class PhotoManager: ObservableObject {
         }
         
         DispatchQueue.main.async {
-            self.photos = newPhotos.suffix(100)
+            self.photos = newPhotos.suffix(1000)
             self.isLoading = false
         }
     }
@@ -97,7 +97,7 @@ struct PhotoItem: Identifiable {
     var formattedDate: String {
         guard let date = creationDate else { return "Unknown Date" }
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM 'yy"
+        formatter.dateFormat = "MMM YY"
         return formatter.string(from: date)
     }
     
